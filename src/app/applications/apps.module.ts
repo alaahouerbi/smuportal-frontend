@@ -6,16 +6,9 @@ const routes: Routes = [
   {
     path: "apps",
     loadChildren: () =>
-      import("./logistics-reservation/logistics-reservation.module").then(
-        m => m.LogisticsReservationModule
+      import("./applications.module").then(
+        m => m.ApplicationsModule
       )
-  },
-  {
-    path: "bms",
-    loadChildren: () =>
-    import("./book-management-system/book-management-system.module").then(
-      m => m.BookManagementSystemModule
-    )
   }
 ];
 @NgModule({
@@ -23,4 +16,4 @@ const routes: Routes = [
   imports: [CommonModule, RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ApplicationsModule {}
+export class AppsModule {}
