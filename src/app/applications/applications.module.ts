@@ -16,8 +16,11 @@ const routes: Routes = [
     import("./book-management-system/book-management-system.module").then(
       m => m.BookManagementSystemModule
     )
-  }
-];
+  },{
+  path: "jobs",
+  loadChildren: () =>
+  import("./job-offer-appli/job-offer-appli.module").then(m=>m.JobOfferAppliModule)
+  }];
 @NgModule({
   declarations: [],
   imports: [CommonModule, RouterModule.forChild(routes)],

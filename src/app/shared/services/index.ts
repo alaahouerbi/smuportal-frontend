@@ -4,3 +4,4 @@ export * from "./jwt.service";
 export * from "./tfa.service";
 export * from "./box-booking.service";
 export * from "./bms.service";
+export * from "./job-offer-service.service"
