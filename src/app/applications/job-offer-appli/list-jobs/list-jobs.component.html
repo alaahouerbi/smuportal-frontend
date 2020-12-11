@@ -16,7 +16,7 @@
           <td>{{job.title}}</td>
           <td>{{job.description}}</td>
           <td>{{job.postedOn|date:'short'}}</td>
-          <td><button type="button" class="btn btn-primary" (click)="applyForJob(job._id)">apply</button></td>
+          <td><button type="button" class="btn btn-primary" [disabled]="clicked[i]" (click)="applyForJob(job._id);clicked[i] = true;">apply</button></td>
 
         </tr>
       </ng-container>

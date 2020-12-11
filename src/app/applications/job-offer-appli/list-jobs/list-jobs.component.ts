@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JobOffer, JobOfferServiceService } from '@app/shared';
 import { BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
+import { faSleigh } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-list-jobs',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./list-jobs.component.css']
 })
 export class ListJobsComponent implements OnInit {
+   clicked:boolean[]=new Array() ;
   applyForJob(jobOfferID:string){
     this.jobOfferService.applyForJob(jobOfferID);
   }
