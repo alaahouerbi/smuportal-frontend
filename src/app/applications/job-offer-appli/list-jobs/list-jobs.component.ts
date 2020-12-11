@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JobOffer, JobOfferServiceService } from '@app/shared';
 import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-jobs',
@@ -8,6 +9,9 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./list-jobs.component.css']
 })
 export class ListJobsComponent implements OnInit {
+  applyForJob(jobOfferID:string){
+    this.jobOfferService.applyForJob(jobOfferID);
+  }
   listOfJobs: BehaviorSubject<JobOffer[]>=new BehaviorSubject<JobOffer[]>([]);
 
   constructor(private jobOfferService:JobOfferServiceService) { }
