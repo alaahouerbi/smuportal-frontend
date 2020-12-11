@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { JobOffer, JobOfferServiceService } from '@app/shared';
-import { BehaviorSubject } from 'rxjs';
-import { Router } from '@angular/router';
-import { faSleigh } from '@fortawesome/free-solid-svg-icons';
+import { BehaviorSubject, from } from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-list-jobs',
@@ -10,13 +9,17 @@ import { faSleigh } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./list-jobs.component.css']
 })
 export class ListJobsComponent implements OnInit {
-   clicked:boolean[]=new Array() ;
+  goToJobOffer(id:string){
+
+
+    this.router.navigate(["/apps/jobs/joboffer",id]);
+  }
   applyForJob(jobOfferID:string){
     this.jobOfferService.applyForJob(jobOfferID);
   }
   listOfJobs: BehaviorSubject<JobOffer[]>=new BehaviorSubject<JobOffer[]>([]);
-
-  constructor(private jobOfferService:JobOfferServiceService) { }
+  clicked:boolean[]=new Array(this.listOfJobs.getValue.length) ;
+  constructor(private jobOfferService:JobOfferServiceService,private router:Router) { }
 
   ngOnInit() {
     this.jobOfferService.getJobOffers().subscribe({

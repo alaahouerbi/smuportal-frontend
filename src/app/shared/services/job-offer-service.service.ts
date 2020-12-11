@@ -13,8 +13,10 @@ export class JobOfferServiceService {
   applyForJob(jobOffer: string):void{
     this.httpClient.post<any>('http://localhost:3000/api/user/applyForJob/'+jobOffer,null).subscribe()
   }
-
+  getJobOffer(id:string):Observable<JobOffer[]>{
+    return this.httpClient.get<JobOffer[]>('http://localhost:3000/api/user/getjobOffer/'+id);
+  }
   getJobOffers(): Observable<JobOffer[]> {
-    return this.httpClient.get<JobOffer[]>("http://localhost:3000/api/user/getjobOffer");
+    return this.httpClient.get<JobOffer[]>("http://localhost:3000/api/user/getJobOffer");
   }
 }

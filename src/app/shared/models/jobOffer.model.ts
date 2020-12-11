@@ -3,4 +3,5 @@ export interface JobOffer {
   title: string;
   description: string;
   postedOn: Date;
+  jobApps:Array<any>;
 }
