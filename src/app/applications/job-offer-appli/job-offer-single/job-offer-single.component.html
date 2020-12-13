@@ -1,14 +1,20 @@
+<div id="page-content-wrapper">
 <div class="group">
-  <p>idk yet
-    {{data?.title}}
-  </p>
-  <p>new
-     {{data?.description}}
-  </p>
-  <ng-container *ngFor="let jobapp of data.jobApps">
-    <tr>
-      <td>{{jobapp}}</td>
-    </tr>
-  </ng-container>
+  <div class="row">
+    <div class="col font-weight-bold">
+ job Offer title</div>
+    <div class="col"> {{data?.title}}</div>
 
+</div>
+<div class="row mt-4">
+
+    description
+    <div class="col">
+    {{data?.description}}
+  </div>
+</div>
+  <p>{{data?.JobApps}}</p>
+
+
+</div>
 </div>

@@ -20,6 +20,7 @@ export class JobOfferSingleComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.id = params.get("id");
+
     });
 
     this.jobOfferService.getJobOffer(this.id).subscribe({
@@ -27,9 +28,10 @@ export class JobOfferSingleComponent implements OnInit {
         this.data = {
           title: data.title,
           description: data.description,
-          jobApps: data.jobApps
+          JobApps: data.JobApps
         };
       }
     });
   }
+
 }
