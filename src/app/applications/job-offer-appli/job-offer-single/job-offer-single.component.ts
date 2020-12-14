@@ -25,6 +25,7 @@ export class JobOfferSingleComponent implements OnInit {
 
     this.jobOfferService.getJobOffer(this.id).subscribe({
       next: (data: any) => {
+        console.log(data);
         this.data = {
           title: data.title,
           description: data.description,
