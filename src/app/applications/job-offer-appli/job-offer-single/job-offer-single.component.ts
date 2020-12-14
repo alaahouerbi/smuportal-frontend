@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { JobOffer, JobOfferServiceService } from "@app/shared";
 import { ActivatedRoute } from "@angular/router";
 import { BehaviorSubject, Observable } from "rxjs";
+import { UserActionsComponent } from "@app/shared/user-actions";
 @Component({
   selector: "app-job-offer-single",
   templateUrl: "./job-offer-single.component.html",
@@ -29,7 +30,8 @@ export class JobOfferSingleComponent implements OnInit {
         this.data = {
           title: data.title,
           description: data.description,
-          JobApps: data.JobApps
+          JobApps: data.JobApps,
+          User:data.User
         };
       }
     });
