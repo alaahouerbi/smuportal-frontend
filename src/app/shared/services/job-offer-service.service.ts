@@ -17,6 +17,21 @@ export class JobOfferServiceService {
     return this.httpClient.get<JobOffer[]>('http://localhost:3000/api/user/getjobOffer/'+id);
   }
   getJobOffers(): Observable<JobOffer[]> {
-    return this.httpClient.get<JobOffer[]>("http://localhost:3000/api/user/getJobOffer");
+    return this.httpClient.get<JobOffer[]>('http://localhost:3000/api/user/getJobOffer');
+  }
+  addJobOffer(jobOffer:JobOffer):void{
+    this.httpClient.post<any>('http://localhost:3000/api/user/addjobOffer',jobOffer).subscribe({
+      next: (data: any) => {
+        this.addNewJob(jobOffer);
+        console.log(data);
+       },
+       error: (data: any) => console.warn(data)
+
+    })
+  }
+  private addNewJob(joboffer:JobOffer){
+    const jobs:JobOffer[]=this.listOfJobs.getValue();
+    jobs.push(joboffer);
+    this.listOfJobs.next(jobs);
   }
 }

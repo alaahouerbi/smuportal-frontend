@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { JobOffer, JobOfferServiceService } from "@app/shared";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute,Router } from "@angular/router";
 import { BehaviorSubject, Observable } from "rxjs";
 import { UserActionsComponent } from "@app/shared/user-actions";
 @Component({
@@ -15,7 +15,8 @@ export class JobOfferSingleComponent implements OnInit {
   data: any;
   constructor(
     private jobOfferService: JobOfferServiceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router:Router
   ) {}
 
   ngOnInit() {
@@ -35,6 +36,9 @@ export class JobOfferSingleComponent implements OnInit {
         };
       }
     });
+  }
+  goBack() {
+    this.router.navigate(["/apps/jobs"])
   }
 
 }
