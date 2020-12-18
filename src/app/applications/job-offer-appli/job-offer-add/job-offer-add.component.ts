@@ -30,6 +30,6 @@ export class JobOfferAddComponent implements OnInit {
     this.jobForm.reset();
   }
   goBack(){
-    this.router.navigate(["app/jobs"]);
+    this.router.navigate(["apps/jobs"]);
   }
 }
