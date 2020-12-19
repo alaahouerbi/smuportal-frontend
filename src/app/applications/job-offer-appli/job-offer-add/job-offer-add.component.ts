@@ -22,8 +22,8 @@ export class JobOfferAddComponent implements OnInit {
 
   ngOnInit() {
   }
-  onSubmit(jobOffer){
-
+  onSubmit(jobOffer,$event: MouseEvent){
+    ($event.target as HTMLButtonElement).disabled = true;
     console.warn("job Offer:",jobOffer);
     this.jobOfferService.addJobOffer(jobOffer);
     this.jobAdded.next(true);
